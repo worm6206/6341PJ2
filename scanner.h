@@ -9,12 +9,12 @@
 using namespace std;
 
 // Count stuff
-struct Counter{
+struct Counter{ // Not used at all in project 2. But might be usefull after this project, so kept it.
 	int LiteralAtom, numericAtom, openPar, closingPar, sum, index;
 	Counter() : LiteralAtom(0), numericAtom(0), openPar(0), closingPar(0), sum(0), index(0) {}
 };
 
-struct Token{
+struct Token{ // a Token consists a Type and Content. Example: Type: Atom, Content: 123.
 	string Type, Content;
 	Token(string a, string b){
 		Type = a;
@@ -27,12 +27,12 @@ struct Token{
 };
 
 // Scan stuff return token
+// This is from last project, modified a little bit to fit in.
 struct Scanner{
 	int Index;
 	string InputLine, error;
 	Token Current;
 	void Init();// read file
-	Token GetCurrent();
 	void MoveToNext();
 	Token getNextToken();
 	void print(stringstream& ss);

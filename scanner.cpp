@@ -17,12 +17,16 @@ void Scanner::Init(){
 	}
 	Current = getNextToken();
 }
-Token Scanner::GetCurrent(){
-	return Current;
-}
+
 void Scanner::MoveToNext(){
 	Current = getNextToken(); 
 }
+
+// "index" is the starting position to get token
+// "inputLines" is the string this function is reading
+// "error" is for error message. Stays empty unless error occurs.
+//  "atoms" is a string vector storing all literal atoms.
+//  "sum" is for summing up all numeric atoms.
 Token Scanner::getNextToken(){
 	while (InputLine[Index]==32 || InputLine[Index]==9 || InputLine[Index]==13 || InputLine[Index]==10){
 		Index++;
@@ -69,6 +73,7 @@ Token Scanner::getNextToken(){
 		return Token(ERROR);
 	}
 }
+
 void Scanner::print(stringstream& ss){
 	ss << Current.Content;
 }
